@@ -9,6 +9,8 @@ import { Validators } from '@angular/forms';
 })
 export class CreateConfigComponent implements OnInit {
   form: FormGroup;
+  bet2:FormGroup;
+  Qualification:boolean = false;
   constructor(private formBuilder: FormBuilder, private dialogRef: MatDialogRef<CreateConfigComponent>) {
     this.form = new FormGroup({
       ConfigName: new FormControl('',Validators.required),
@@ -20,6 +22,19 @@ export class CreateConfigComponent implements OnInit {
       Home: new FormControl('',Validators.required),
       Favourite: new FormControl('',Validators.required),
       PreGame: new FormControl('',Validators.required)
+    });
+    this.bet2 = new FormGroup({
+      ConfigName: new FormControl('',Validators.required),
+      Home: new FormControl('',Validators.required),
+      PreGame: new FormControl('',Validators.required),
+      SportsBook: new FormControl('',Validators.required),
+      LineMax: new FormControl('',Validators.required),
+      LineMin: new FormControl('',Validators.required),
+      GameTime: new FormControl('',Validators.required),
+      BetOfRecovery: new FormControl('',Validators.required),
+      referenceLine:new FormControl('',Validators.required),
+      range:new FormControl('',Validators.required),
+      period:new FormControl('',Validators.required)
     });
   }
 

@@ -7,9 +7,6 @@
     </mat-expansion-panel-header>
     <form  [formGroup]="form" (submit)="onSend()" id="editForm">
 
-
-
-
       <h2 matDialogTitle>New Config</h2>
       <mat-label>Config name</mat-label>
       <input matInput type="text"   name="title" formControlName="ConfigName" [ngClass]="{ 'is-invalid': f.ConfigName.errors}"/>
@@ -82,7 +79,88 @@
         Bet2
       </mat-panel-title>
     </mat-expansion-panel-header>
-    <p>I'm visible because I am open</p>
+    <form  [formGroup]="bet2" (submit)="onSend()">
+
+      <div>
+        <input type="checkbox" class="example-margin" formControlName="Home">Home
+        <input type="checkbox" class="example-margin" formControlName="PreGame">PreGame
+
+      </div>
+
+      <div class="wrapper">
+        <div id="SportsBookBet2">
+          <label for="SportsBookBet2Input">SportsBook:</label>
+          <input matInput type="text"  name="SportsBook" id="SportsBookBet2Input" formControlName="SportsBook">
+          <div *ngIf="f.SportsBook.touched && f.SportsBook.invalid" class="text-danger">
+            <p *ngIf="f.SportsBook.errors?.required" style="color: red">SportsBook is required.</p>
+          </div>
+        </div>
+
+        <div id="LineMaxBet2">
+          <label for="LineMaxBet2Input">LineMax:</label>
+          <input matInput  type="text"  name="LineMax" id="LineMaxBet2Input" formControlName="LineMax"/>
+          <div *ngIf="f.LineMax.touched && f.LineMax.invalid" class="text-danger">
+            <p *ngIf="f.LineMax.errors?.required" style="color: red">LineMax is required.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="wrapper">
+        <div id="GameTimeBet2">
+          <label for="GameTimeBet2Input" >GameTime:</label>
+          <input matInput  type="text"  name="GameTime" id="GameTimeBet2Input" formControlName="GameTime"/>
+          <div *ngIf="f.GameTime.touched && f.GameTime.invalid" class="text-danger">
+            <p *ngIf="f.GameTime.errors?.required" style="color: red">GameTime is required.</p>
+          </div>
+        </div>
+        <div>
+          <label for="lineminBet2" >LineMin:</label>
+          <input  matInput type="text"  name="LineMin" id="lineminBet2" formControlName="LineMin"/>
+          <div *ngIf="f.LineMin.touched && f.LineMin.invalid" class="text-danger">
+            <p *ngIf="f.LineMin.errors?.required" style="color: red">LineMin is required.</p>
+          </div>
+        </div>
+      </div>
+
+      <input type="checkbox" class="example-margin" ([ngModel])="Qualification">Qualification
+      <div *ngIf ="Qualification">lala</div>
+      <div>
+        <mat-label>referenceLine:</mat-label>
+        <input matInput type="text"  name="BetOnMovement"  id="referenceLine" formControlName="referenceLine"/>
+        <div *ngIf="f.BetOnMovement.touched && f.BetOnMovement.invalid" class="text-danger">
+          <p *ngIf="f.BetOnMovement.errors?.required" style="color: red">BetOnMovement is required.</p>
+        </div>
+      </div>
+      <div>
+        <mat-label>range:</mat-label>
+        <input matInput type="text"  name="BetOnMovement"  id="range" formControlName="range"/>
+        <div *ngIf="f.BetOnMovement.touched && f.BetOnMovement.invalid" class="text-danger">
+          <p *ngIf="f.BetOnMovement.errors?.required" style="color: red">BetOnMovement is required.</p>
+        </div>
+      </div>
+      <div>
+        <mat-label>period:</mat-label>
+        <input matInput type="text"  name="BetOnMovement"  id="period" formControlName="period"/>
+        <div *ngIf="f.BetOnMovement.touched && f.BetOnMovement.invalid" class="text-danger">
+          <p *ngIf="f.BetOnMovement.errors?.required" style="color: red">BetOnMovement is required.</p>
+        </div>
+      </div>
+      <div>
+        <mat-label>BetOfRecovery:</mat-label>
+        <input matInput type="text"  name="BetOnMovement"  id="BetOfRecovery" formControlName="BetOfRecovery"/>
+        <div *ngIf="f.BetOnMovement.touched && f.BetOnMovement.invalid" class="text-danger">
+          <p *ngIf="f.BetOnMovement.errors?.required" style="color: red">BetOnMovement is required.</p>
+        </div>
+      </div>
+
+
+
+      <mat-dialog-actions align="end">
+        <button mat-button matDialogClose="no">Cancel</button>
+        <button type="submit" mat-button [disabled]="!form.valid">Submit</button>
+      </mat-dialog-actions>
+
+    </form>
   </mat-expansion-panel>
 </mat-accordion>
 
