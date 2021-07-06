@@ -1,0 +1,22 @@
+input{
+  border: 1px solid black;
+  border-radius: 3px;
+  margin-left: 3px;
+}
+#editForm{
+  width: 500px;
+}
+.example-margin{
+  margin-right: 2%;
+}
+.wrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+#betOnMovementInput{
+  width: 70%;
+}
+
+

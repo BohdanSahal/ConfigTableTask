@@ -1,0 +1,93 @@
+<mat-accordion>
+  <mat-expansion-panel hideToggle [expanded]="true" >
+    <mat-expansion-panel-header [@.disabled]="true" expandedHeight="150px" collapsedHeight="60px">
+      <mat-panel-title>
+        Bet1
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <form  [formGroup]="form" (submit)="onSend()" id="editForm">
+
+
+
+
+      <h2 matDialogTitle>New Config</h2>
+      <mat-label>Config name</mat-label>
+      <input matInput type="text"   name="title" formControlName="ConfigName" [ngClass]="{ 'is-invalid': f.ConfigName.errors}"/>
+      <div *ngIf="f.ConfigName.touched && f.ConfigName.invalid" class="text-danger">
+        <p *ngIf="f.ConfigName.errors?.required" style="color: red">ConfigName is required.</p>
+      </div>
+
+      <div>
+        <input type="checkbox" class="example-margin" formControlName="Home">Home
+        <input type="checkbox" class="example-margin" formControlName="Favourite">Favourite
+        <input type="checkbox" class="example-margin" formControlName="PreGame">Pre Game
+      </div>
+
+      <div class="wrapper">
+        <div id="SportsBook">
+          <label for="sportsbookInput">SportsBook:</label>
+          <input matInput type="text"  name="SportsBook" id="sportsbookInput" formControlName="SportsBook">
+          <div *ngIf="f.SportsBook.touched && f.SportsBook.invalid" class="text-danger">
+            <p *ngIf="f.SportsBook.errors?.required" style="color: red">SportsBook is required.</p>
+          </div>
+        </div>
+
+        <div id="LineMax">
+          <label for="linemaxInput">LineMax:</label>
+          <input matInput  type="text"  name="LineMax" id="linemaxInput" formControlName="LineMax"/>
+          <div *ngIf="f.LineMax.touched && f.LineMax.invalid" class="text-danger">
+            <p *ngIf="f.LineMax.errors?.required" style="color: red">LineMax is required.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="wrapper">
+        <div id="GameTime">
+          <label for="gametimeInput" >GameTime:</label>
+          <input matInput  type="text"  name="GameTime" id="gametimeInput" formControlName="GameTime"/>
+          <div *ngIf="f.GameTime.touched && f.GameTime.invalid" class="text-danger">
+            <p *ngIf="f.GameTime.errors?.required" style="color: red">GameTime is required.</p>
+          </div>
+        </div>
+        <div>
+          <label for="linemin" >LineMin:</label>
+          <input  matInput type="text"  name="LineMin" id="linemin" formControlName="LineMin"/>
+          <div *ngIf="f.LineMin.touched && f.LineMin.invalid" class="text-danger">
+            <p *ngIf="f.LineMin.errors?.required" style="color: red">LineMin is required.</p>
+          </div>
+        </div>
+      </div>
+
+
+      <div>
+        <mat-label>Bet on movement:</mat-label>
+        <input matInput type="text"  name="BetOnMovement"  id="betOnMovementInput" formControlName="BetOnMovement"/>
+        <div *ngIf="f.BetOnMovement.touched && f.BetOnMovement.invalid" class="text-danger">
+          <p *ngIf="f.BetOnMovement.errors?.required" style="color: red">BetOnMovement is required.</p>
+        </div>
+      </div>
+
+
+      <mat-dialog-actions align="end">
+        <button mat-button matDialogClose="no">Cancel</button>
+        <button type="submit" mat-button [disabled]="!form.valid">Submit</button>
+      </mat-dialog-actions>
+
+    </form>
+
+  </mat-expansion-panel>
+  <mat-expansion-panel [expanded]="false">
+    <mat-expansion-panel-header [@.disabled]="true" expandedHeight="100px" collapsedHeight="60px">
+      <mat-panel-title>
+        Bet2
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <p>I'm visible because I am open</p>
+  </mat-expansion-panel>
+</mat-accordion>
+
+
+
+
+
+

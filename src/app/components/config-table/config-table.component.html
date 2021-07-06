@@ -1,0 +1,70 @@
+<button mat-raised-button color="primary" (click)="openDialog()">Create Config</button>
+
+<mat-form-field>
+  <mat-select [(value)]="selected">
+    <mat-option value="domain">Bet1</mat-option>
+    <mat-option value="exact">Bet2</mat-option>
+  </mat-select>
+</mat-form-field>
+
+
+<div class="example-header">
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Filter">
+  </mat-form-field>
+</div>
+<div class="mat-elevation-z8">
+  <mat-table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="configName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Config Name</th>
+      <td mat-cell *matCellDef="let element"> {{element.configName}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="home">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Home </th>
+      <td mat-cell *matCellDef="let element"> {{element.home}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="favorite">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Favorite </th>
+      <td mat-cell *matCellDef="let element"> {{element.favorite}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="sportsBook">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Sports book </th>
+      <td mat-cell *matCellDef="let element"> {{element.sportsBook}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="preGame">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Pre Game </th>
+      <td mat-cell *matCellDef="let element"> {{element.preGame}} </td>
+    </ng-container>
+    <ng-container matColumnDef="minGameTime">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Min Game Time </th>
+      <td mat-cell *matCellDef="let element"> {{element.minGameTime}} </td>
+    </ng-container>
+    <ng-container matColumnDef="below">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>  Below </th>
+      <td mat-cell *matCellDef="let element">{{element.below}}  </td>
+    </ng-container>
+    <ng-container matColumnDef="above">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>  Above </th>
+      <td mat-cell *matCellDef="let element"> {{element.above}} </td>
+    </ng-container>
+    <ng-container matColumnDef="percentage">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Percentage Change </th>
+      <td mat-cell *matCellDef="let element"> {{element.percentage}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </mat-table>
+
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>

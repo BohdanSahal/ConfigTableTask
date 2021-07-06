@@ -1,0 +1,6 @@
+table {
+  width: 100%;
+}
+.is-invalid{
+  border:1px red solid;
+}
