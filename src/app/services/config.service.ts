@@ -267,7 +267,7 @@ const configsList: Object[] = [
     }
   },
   {
-    configName:'Test Config',
+    configName:'Test Confg',
     configId: 'qwe213wqe123eqwe2312i24i23g5ugy2324h2fyd2uywgr',
     bet1: {
       home: true,
